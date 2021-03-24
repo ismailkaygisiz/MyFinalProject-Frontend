@@ -40,8 +40,7 @@ export class ProductAddComponent implements OnInit {
       let productModel = Object.assign({}, this.productAddForm.value);
       this.productService.add(productModel).subscribe(
         (response) => {
-          console.log(response);
-          this.toastrService.success(response.message, 'Success');
+          this.toastrService.success(response.message, 'Başarılı');
         },
         (responseError) => {
           if (responseError.error.Errors.length > 0) {
@@ -55,7 +54,10 @@ export class ProductAddComponent implements OnInit {
         }
       );
     } else {
-      this.toastrService.error('Form is not valid', 'Validation Error');
+      this.toastrService.error(
+        'Anlaşılan formunuz henüz tamamlanmamış',
+        'Form Tamamlanmadı'
+      );
     }
   }
 }

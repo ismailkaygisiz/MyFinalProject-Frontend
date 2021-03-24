@@ -28,7 +28,8 @@ export class ProductService {
   add(product: Product): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(
       this.apiUrl + 'products/add',
-      product
+      product,
+      
     );
   }
 }
